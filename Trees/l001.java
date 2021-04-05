@@ -51,6 +51,22 @@ public static class Node {
 
     // BASIC FUNCTIONS
 
+    
+    public static void displayTree(Node node){
+        // 10 -> 20, 30, 40
+        String str = node.data + "->";
+        for(child: node.children){      // 20, 30, 40
+            str += child.data + ",";
+        }
+        str += ".";
+        System.out.println(str);
+
+        for(child: node.children){      // 20, 30, 40
+            displayTree(child);
+        }
+
+    }
+
     public static int size(Node root){
         if(root == null){
             return 0;
@@ -74,6 +90,7 @@ public static class Node {
 
         return Math.max(leftHeight, rightHeight) + 1;
     }
+    
     public static int heightInTermsOfNode(Node root){
         if(root == null){
             return 0;
